@@ -34,18 +34,23 @@ class GuestList extends Component {
 
   render() {
     return (
-      <table className="table table-hover">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Party</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.props.guestlist.map(this.renderGuestList.bind(this))}
-        </tbody>
-      </table>
+      <div>
+        <div className="modal-header">
+          Guest List
+        </div>
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Party</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.guestlist.map(this.renderGuestList.bind(this))}
+          </tbody>
+        </table>
+      </div>
     );
   }
 }

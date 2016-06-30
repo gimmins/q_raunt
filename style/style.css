@@ -2,6 +2,11 @@
   margin: 20px 0px;
 }
 
+.modal-header {
+  text-align: center;
+  font-size: 35px;
+}
+
 td, th {
   vertical-align: middle !important;
   text-align: center !important;

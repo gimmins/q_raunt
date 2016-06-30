@@ -4,12 +4,17 @@ export default function(state = [], action) {
   switch (action.type) {
     case ADD_GUEST:
       var newState = state.slice();
+
+      if (action.payload.notes === '') {
+        action.payload.notes = 'No Preference';
+      }
+
       return [ ...state, action.payload ];
     case REMOVE_GUEST:
       var indexToRemove = parseInt(action.payload, 10);
       state.splice(indexToRemove, 1);
       return [ ...state ];
   }
-  
+
   return state;
 }

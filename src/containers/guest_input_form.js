@@ -40,24 +40,23 @@ export default class GuestInputForm extends Component {
   render() {
     return(
       <form onSubmit={this.onFormSubmit} className="input-group">
-      <div className="form-control">
         <input
+          className="input-group"
           placeholder="Guest Name"
           value={this.state.name}
           onChange={this.onGuestNameInputChange} />
         <input
+          className="input-group"
           placeholder="Party"
           value={this.state.party}
           onChange={this.onPartyNumberInputChange} />
         <input
+          className="input-group"
           placeholder="Notes"
           value={this.state.notes}
           onChange={this.onPreferencesInputChange} />
-        </div>
 
-        <span className="form-control">
-          <button type="submit" className="btn btn-primary btn-block">Submit</button>
-        </span>
+        <button type="submit" className="btn btn-primary btn-block">Add To Guest List</button>
       </form>
     );
   }
