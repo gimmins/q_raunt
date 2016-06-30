@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { fetchWeather } from '../actions/index';
-import { addGuestToList } from '../actions/add_guest';
+import { addGuestToList } from '../actions/guest_list_action';
 
-export default class SearchBar extends Component {
+export default class GuestInputForm extends Component {
   constructor(props) {
     super(props);
 
@@ -44,17 +43,14 @@ export default class SearchBar extends Component {
       <div className="form-control">
         <input
           placeholder="Guest Name"
-          //className="form-control"
           value={this.state.name}
           onChange={this.onGuestNameInputChange} />
         <input
           placeholder="Party"
-          //className="form-control"
           value={this.state.party}
           onChange={this.onPartyNumberInputChange} />
         <input
           placeholder="Notes"
-          //className="form-control"
           value={this.state.notes}
           onChange={this.onPreferencesInputChange} />
         </div>
@@ -68,16 +64,10 @@ export default class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchWeather }, dispatch);
-}
-
-function mapDispatchToProps(dispatch) {
   return bindActionCreators({ addGuestToList }, dispatch);
 }
 
 // Whenever we are passing a function that is supposed to map our dispatch to
 // the props of our container, it always is passed as a second argument, first
 // argument is null
-export default connect(null, mapDispatchToProps)(SearchBar);
-
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default connect(null, mapDispatchToProps)(GuestInputForm);
