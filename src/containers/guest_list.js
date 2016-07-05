@@ -3,32 +3,25 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { removeGuestFromList } from '../actions/guest_list_action';
+import GuestRows from '../components/guest_rows';
 
 class GuestList extends Component {
-
   onDeleteButtonClick(event) {
-    console.log(event.target.value);
     this.props.removeGuestFromList(event.target.value);
   }
 
-  renderGuestList(guestData, guestIndex) {
+  renderGuestList(guestData) {
     const name = guestData.name;
     const party = guestData.party;
     const notes = guestData.notes;
 
     return (
-      <tr key={name}>
-        <td>{name}</td>
-        <td>{party}</td>
-        <td>{notes}</td>
-        <td>
-          <button type="button"
-                  onClick={this.onDeleteButtonClick.bind(this)}
-                  value={guestIndex}
-                  className="btn btn-primary"> Delete
-          </button>
-        </td>
-      </tr>
+      <GuestRows key={guestData.name}
+                 name={guestData.name}
+                 party={guestData.party}
+                 notes={guestData.notes}
+                 onDeleteButtonClick={this.onDeleteButtonClick.bind(this)}
+                 />
     );
   }
 

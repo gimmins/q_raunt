@@ -11,9 +11,13 @@ export default function(state = [], action) {
 
       return [ ...state, action.payload ];
     case REMOVE_GUEST:
-      var indexToRemove = parseInt(action.payload, 10);
-      state.splice(indexToRemove, 1);
-      return [ ...state ];
+      var newState = state.filter((state) => {
+        if (action.payload !== state.name) {
+          return state;
+        }
+      })
+
+      return newState;
   }
 
   return state;
