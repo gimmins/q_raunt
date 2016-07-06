@@ -3,9 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { removeGuestFromList } from '../actions/guest_list_action';
-import GuestRows from '../components/guest_rows';
+import GuestRows from '../containers/guest_rows';
 
 class GuestList extends Component {
+  onEditButtonClick() {
+    console.log('hello');
+  }
+
   onDeleteButtonClick(event) {
     this.props.removeGuestFromList(event.target.value);
   }
@@ -21,6 +25,7 @@ class GuestList extends Component {
                  party={guestData.party}
                  notes={guestData.notes}
                  onDeleteButtonClick={this.onDeleteButtonClick.bind(this)}
+                 onEditButtonClick={this.onEditButtonClick.bind(this)}
                  />
     );
   }
@@ -52,9 +57,8 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ removeGuestFromList }, dispatch);
 }
 
-// ES6 way of { weather } === { weather: weather }
-function mapStateToProps({ weather, guestlist }) {
-  return { weather: weather, guestlist: guestlist };
+function mapStateToProps({ guestlist }) {
+  return { guestlist: guestlist };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GuestList);

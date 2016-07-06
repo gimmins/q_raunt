@@ -5,6 +5,12 @@ import { bindActionCreators } from 'redux';
 import { addGuestToList } from '../actions/guest_list_action';
 
 export default class GuestInputForm extends Component {
+  componentWillMount() {
+    this.props.addGuestToList({ name: 'Min Soo Kim', party: '2', notes: 'Table please' });
+    this.props.addGuestToList({ name: 'Julie Kim', party: '5', notes: 'My birthday'});
+    this.props.addGuestToList({ name: 'Sandra Jackson', party: '1', notes: ''});
+  }
+
   constructor(props) {
     super(props);
 

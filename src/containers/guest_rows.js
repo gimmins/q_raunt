@@ -8,7 +8,13 @@ export default class GuestRow extends Component {
   render() {
     return (
       <tr>
-        <td>{this.props.name}</td>
+        <td>
+          {this.props.name}
+          <img className="icon-edit"
+               onClick={this.props.onEditButtonClick}
+               src="../../icon_edit.png"
+               alt="edit"/>
+        </td>
         <td>{this.props.party}</td>
         <td>{this.props.notes}</td>
         <td>
