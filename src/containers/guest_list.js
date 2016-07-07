@@ -6,26 +6,23 @@ import { removeGuestFromList } from '../actions/guest_list_action';
 import GuestRows from '../containers/guest_rows';
 
 class GuestList extends Component {
-  onEditButtonClick() {
-    console.log('hello');
-  }
 
   onDeleteButtonClick(event) {
     this.props.removeGuestFromList(event.target.value);
   }
 
-  renderGuestList(guestData) {
+  renderGuestList(guestData, guestIndex) {
     const name = guestData.name;
     const party = guestData.party;
     const notes = guestData.notes;
 
     return (
-      <GuestRows key={guestData.name}
+      <GuestRows key={guestIndex}
+                 row={guestIndex}
                  name={guestData.name}
                  party={guestData.party}
                  notes={guestData.notes}
                  onDeleteButtonClick={this.onDeleteButtonClick.bind(this)}
-                 onEditButtonClick={this.onEditButtonClick.bind(this)}
                  />
     );
   }
